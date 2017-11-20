@@ -1,23 +1,16 @@
 package main
 
 import (
-	"fmt"
-	"time"
+	"log"
+	"os"
 )
 
-type Bootcamp struct {
-	// Latitude of the event
-	Lat float64
-	// Longitude of the event
-	Lon float64
-	// Date of the event
-	Date time.Time
+type Job struct {
+	Command string
+	*log.Logger
 }
 
 func main() {
-	fmt.Println(Bootcamp{
-		Lat:  34.012836,
-		Lon:  -118.495338,
-		Date: time.Now(),
-	})
+	job := &Job{"demo", log.New(os.Stderr, "Job: ", log.Ldate)}
+	job.Print("starting now...")
 }
